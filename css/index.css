@@ -16,6 +16,11 @@ main.landing {
 	align-items: center;
 	justify-content: center;
 }
+main.browse {  
+	padding-top: 60px;
+	justify-content: center;
+	padding-bottom: 5px;
+}
 main.cart {
 	align-items: center;
 	justify-content: center;
@@ -30,4 +35,9 @@ main.register {
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
+}
+main.admin {
+	padding-top: 60px;
+	justify-content: center;
+	padding-bottom: 5px;
 }

@@ -1,0 +1,13 @@
+.admin {
+	display: flex;
+	flex-direction: row;
+	padding-left: 50px;
+}
+.admin div{
+	flex: 30%;
+	padding-right: 50px;
+}
+.admin div form {
+	display: flex;
+    flex-direction: column;
+}
