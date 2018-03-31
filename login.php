@@ -1,6 +1,6 @@
 <?php
     session_start();
-	if (isset($_SESSION['pseudo']) && !empty($_SESSION['pseudo']))
+	if (isset($_SESSION['username']) && !empty($_SESSION['username']))
 	{
         header('Location: index.php');
         exit();
@@ -8,12 +8,12 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
-	<?php $page_name="Login"; include('component/header.php'); ?>
+	<?php $page_name="Login"; include('components/header.php'); ?>
 	<body class="wrapper">
-		<?php include('component/nav.php'); ?>
-		<main>
+		<?php include('components/nav.php'); ?>
+		<main class="login">
 			<h1>Login</h1>
-			<form action="controller/people.php" method="POST">
+			<form action="controllers/user.php" method="POST">
 				<input type="text" name="username" placeholder="Username" class="" value="">
 				<input type="password" name="password" placeholder="Password" class="">
 				<button type="submit" class="btn btn-default">Login</button>
@@ -22,6 +22,6 @@
 				<p>Have not registered? <a href="register.php">Register here</a></p>
 			</form>
 		</main>
-		<?php include('component/footer.php'); ?>
+		<?php include('components/footer.php'); ?>
 	<body>
 </html>

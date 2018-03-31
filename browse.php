@@ -1,15 +1,15 @@
 <?php
     session_start();
-    require_once('model/categories.php');
-    require_once('model/products.php');
+    require_once('models/categories.php');
+    require_once('models/products.php');
     $categories = category_get_all();
     $movie = product_get_filtre($_GET['cat'], (float)$_GET['min'], (float)$_GET['max'], $_GET['name']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
-	<?php $page_name="Browse"; include('component/header.php'); ?>
+	<?php $page_name="Browse"; include('components/header.php'); ?>
 	<body class="wrapper">
-		<?php include('component/nav.php'); ?>
+		<?php include('components/nav.php'); ?>
 		<main class="browse">
 			<div class="filter">
 				<h2>Filter</h2>
@@ -56,6 +56,6 @@
 				?>
 			</div>
 		</main>
-		<?php include('component/footer.php'); ?>
+		<?php include('components/footer.php'); ?>
 	</body>
 </html>

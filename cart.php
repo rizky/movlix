@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once('model/products.php');
+    require_once('models/products.php');
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['id']) {
         $movies = product_get_byid($_POST['id']);
         if ($_POST['quantity'] && is_numeric($_POST['quantity']) && $_POST['quantity'] > 0 && $movies) {
@@ -28,9 +28,9 @@
     $basket = unserialize($_SESSION['basketMovie']);
 ?>
 <html lang="en">
-	<?php $page_name="Cart"; include('component/header.php'); ?>
+	<?php $page_name="Cart"; include('components/header.php'); ?>
 	<body class="wrapper">
-		<?php include('component/nav.php'); ?>
+		<?php include('components/nav.php'); ?>
 		<main class="cart">
 			<h1 style="text-align: left">My Cart</h1>
 			<?php
@@ -85,7 +85,7 @@
 					</div>
 					<div class="col-l-6">
 						<?php
-							if ($_SESSION['pseudo']) {
+							if ($_SESSION['username']) {
 								echo "<form method=\"post\" action=\"controller/orders.php\" />
 								<input type=\"hidden\" name=\"from\" value=\"basket\" />
 								<input type=\"hidden\" name=\"success\" value=\"member\" />
@@ -102,6 +102,6 @@
 			?>
 		</div>
 		</main>
-		<?php include('component/footer.php'); ?>
+		<?php include('components/footer.php'); ?>
 	</body>
 </html>

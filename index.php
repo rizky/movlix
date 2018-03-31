@@ -1,9 +1,9 @@
 <?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
-	<?php $page_name="Home"; include('component/header.php'); ?>
+	<?php $page_name="Home"; include('components/header.php'); ?>
 	<body class="wrapper">
-		<?php include('component/nav.php'); ?>
+		<?php include('components/nav.php'); ?>
 		<main class="landing">
 		<div id="carousel">
 			<div class="hideLeft" onclick="moveToSelected(this)">
@@ -29,6 +29,6 @@
 			</div>
 			</div>
 		</main>
-		<?php include('component/footer.php'); ?>
+		<?php include('components/footer.php'); ?>
 	</body>
 </html>
