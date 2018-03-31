@@ -50,3 +50,38 @@ ul {
         flex-direction: column;
     }
 }
+
+.nav_account ul{
+	position: absolute;
+	display: flex;
+	align-items: center;
+	padding: 10px 10px;
+	border: 1px solid rgba(238,238,238 ,1);
+	border-radius: 5px;
+	color: rgba(117,117,117 ,1);
+	box-shadow: 5px 10px 20px -20px rgba(85,172,238 ,1);
+	flex-direction: column;
+	opacity: 0;
+	background-color: #fff;
+	margin-top: 10px;
+	margin-left: -48px;
+}
+.nav_account ul li{
+	margin-right: auto;
+	width: 100px;
+}
+ 
+.nav_account:hover ul{
+	opacity: 1;
+	height: auto;
+ }
+.nav_account ul li a{
+	padding: 5px;
+	display: block;
+ }
+.ani{
+	-webkit-transition: 0.4s ease-in;
+	-moz-transition: 0.4s ease-in;
+	-o-transition: 0.4s ease-in;
+	transition: 0.4s ease-in;
+}
