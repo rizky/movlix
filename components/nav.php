@@ -13,14 +13,18 @@
 	<li><a href="cart.php"><i class="fa fa-shopping-cart"></i> <?php echo $cartCount." Cart";?></a></li>
 	<?php
 	if (isset($_SESSION['username']) && !empty($_SESSION['username']))
+	{
 		echo '
 		<li class="nav_account">
 			<span><i class="fa fa-user-circle-o"></i> '.$_SESSION["username"].'</span>
-			<ul class="ani">
-				<li><a href="logout.php">Logout</a></li>
+			<ul class="ani">';
+		if ($admin !== null)
+			echo '<li><a href="admin.php">Manage</a></li>';
+		echo '<li><a href="logout.php">Logout</a></li>
 			</ul>
 		</li>
 		';
+	}
 	else
 	{
 		echo '
