@@ -1,0 +1,35 @@
+.movie .description {
+	display: flex;
+}
+
+.movie .description .thumbnail {
+    flex: 30%;
+    padding: 20px;
+}
+.movie .description .desc {
+    flex: 70%;
+	padding: 20px;
+}
+
+.movie .actors, .movie .crews {
+	padding: 20px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.movie div.photo {
+	width: 100px;
+	height: 100px;
+	margin: 20px;
+}
+
+.movie div.photo .title {
+	background-color: black;
+	margin-top: auto;
+	color: white;
+	height: 40px;
+	display: flex;
+    align-items: center;
+	justify-content: center;
+	width: 100%;
+}

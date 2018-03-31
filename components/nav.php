@@ -1,6 +1,10 @@
 <header>
 <?php
-$cartCount = isset($_SESSION['cartCount']) ? $_SESSION['cartCount']  : "Empty";
+	session_start();
+
+	require_once ('models/user.php');
+	$cartCount = isset($_SESSION['basketCount']) ? $_SESSION['basketCount']  : "Empty";
+	$admin = admin_exist($_SESSION['username']);
 ?>
 <ul class="nav">
 	<li><a href="index.php"><i class="fa fa-home"></i> Home</a></li>
