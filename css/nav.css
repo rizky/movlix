@@ -17,6 +17,7 @@ ul {
 	box-shadow: 5px 10px 20px -20px rgba(85,172,238 ,1);
 	padding-left: 30px;
 	padding-right: 30px;
+	background-color: white;
 }
 .nav li {
 	cursor: pointer;

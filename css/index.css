@@ -4,7 +4,8 @@
 	flex-direction: column;
 }
 header, footer {
-    height: 30px;
+	height: 30px;
+	z-index: 10;
 }
 main {
 	flex: 1;
@@ -13,31 +14,33 @@ main {
 }
 main.landing {
 	flex-direction: column;
-	align-items: center;
 	justify-content: center;
 }
 main.browse {  
 	padding-top: 60px;
-	justify-content: center;
 	padding-bottom: 5px;
 }
 main.cart {
 	align-items: center;
-	justify-content: center;
 	flex-direction: column;
 }
 main.login {
 	align-items: center;
-	justify-content: center;
 	flex-direction: column;
 }
 main.register {
 	align-items: center;
-	justify-content: center;
 	flex-direction: column;
 }
 main.admin {
 	padding-top: 60px;
-	justify-content: center;
 	padding-bottom: 5px;
+}
+main.movie {
+	padding-top: 60px;
+	padding-bottom: 5px;
+	flex-wrap: wrap;
+	overflow: auto;
+	flex-direction: row;
+	align-items: center;
 }
