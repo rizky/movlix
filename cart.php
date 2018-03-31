@@ -85,7 +85,7 @@
 					</div>
 					<div class="col-l-6">
 						<?php
-							if ($_SESSION['pseudo']) {
+							if ($_SESSION['username']) {
 								echo "<form method=\"post\" action=\"controller/orders.php\" />
 								<input type=\"hidden\" name=\"from\" value=\"basket\" />
 								<input type=\"hidden\" name=\"success\" value=\"member\" />

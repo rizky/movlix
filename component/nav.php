@@ -8,10 +8,10 @@ $cartCount = isset($_SESSION['cartCount']) ? $_SESSION['cartCount']  : "Empty";
 	<li class="nav_logo">Movlix</li>
 	<li><a href="cart.php"><i class="fa fa-shopping-cart"></i> <? echo $cartCount." Cart";?></a></li>
 	<? 
-	if (isset($_SESSION['pseudo']) && !empty($_SESSION['pseudo']))
-		echo '<li><i class="fa fa-user-circle-o"></i> .$_SESSION["pseudo"].| <a href="logout.php">Logout</a></li>';
+	if (isset($_SESSION['username']) && !empty($_SESSION['username']))
+		echo '<li><i class="fa fa-user-circle-o"></i> .$_SESSION["username"].| <a href="logout.php">Logout</a></li>';
 	else
-		echo '<li><i class="fa fa-user-circle-o"></i> Account</li>';
+		echo '<li><a href="login.php"><i class="fa fa-user-circle-o"></i> Account</a></li>';
 	?>
 </ul>
 </header>

@@ -16,8 +16,8 @@
     </div>
     <div class="account">
         <?php
-            if (isset($_SESSION['pseudo']) && !empty($_SESSION['pseudo']))
-                echo '<a href="member.php">Hello '.$_SESSION['pseudo'].'</a> | <a href="logout.php">Logout</a>';
+            if (isset($_SESSION['username']) && !empty($_SESSION['username']))
+                echo '<a href="member.php">Hello '.$_SESSION['username'].'</a> | <a href="logout.php">Logout</a>';
             else
                 echo '<a href="register.php">Register</a> | <a href="login.php">Login</a>';
         ?>

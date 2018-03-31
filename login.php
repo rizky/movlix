@@ -1,6 +1,6 @@
 <?php
     session_start();
-	if (isset($_SESSION['pseudo']) && !empty($_SESSION['pseudo']))
+	if (isset($_SESSION['username']) && !empty($_SESSION['username']))
 	{
         header('Location: index.php');
         exit();
@@ -11,7 +11,7 @@
 	<?php $page_name="Login"; include('component/header.php'); ?>
 	<body class="wrapper">
 		<?php include('component/nav.php'); ?>
-		<main>
+		<main class="login">
 			<h1>Login</h1>
 			<form action="controller/people.php" method="POST">
 				<input type="text" name="username" placeholder="Username" class="" value="">

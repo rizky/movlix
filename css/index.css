@@ -21,3 +21,13 @@ main.cart {
 	justify-content: center;
 	flex-direction: column;
 }
+main.login {
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+main.register {
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
