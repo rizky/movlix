@@ -8,9 +8,9 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
-	<?php $page_name="Login"; include('component/header.php'); ?>
+	<?php $page_name="Login"; include('components/header.php'); ?>
 	<body class="wrapper">
-		<?php include('component/nav.php'); ?>
+		<?php include('components/nav.php'); ?>
 		<main class="login">
 			<h1>Login</h1>
 			<form action="controller/people.php" method="POST">
@@ -22,6 +22,6 @@
 				<p>Have not registered? <a href="register.php">Register here</a></p>
 			</form>
 		</main>
-		<?php include('component/footer.php'); ?>
+		<?php include('components/footer.php'); ?>
 	<body>
 </html>
