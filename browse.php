@@ -1,7 +1,7 @@
 <?php
     session_start();
-    require_once('model/categories.php');
-    require_once('model/products.php');
+    require_once('models/categories.php');
+    require_once('models/products.php');
     $categories = category_get_all();
     $movie = product_get_filtre($_GET['cat'], (float)$_GET['min'], (float)$_GET['max'], $_GET['name']);
 ?>
