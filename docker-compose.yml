@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  web:
+    image: piscine_php_rush00
+    environment:
+      - ALLOW_OVERRIDE=true
+    ports:
+      - "80:80"
+    links:
+      - db
+    volumes:
+      - .:/var/www/html/
+
+  db:
+    image: mysql
+    restart: always
+    volumes:
+      - ./mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+  #docker-compose up

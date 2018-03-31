@@ -1,0 +1,23 @@
+.wrapper {
+    height: 100vh;
+    display: flex;
+	flex-direction: column;
+}
+header, footer {
+    height: 30px;
+}
+main {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+}
+main.landing {
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+main.cart {
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}

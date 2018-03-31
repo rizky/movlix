@@ -1,0 +1,55 @@
+main.browse {  
+	padding-top: 60px;
+	justify-content: center;
+	padding-bottom: 5px;
+}
+.browse .filter {
+    flex: 30%;
+    background-color: #cae4f7;
+    padding: 20px;
+}
+.browse .movies {
+    flex: 70%;
+    background-color: white;
+	padding: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	overflow: auto;
+}
+.browse .movies .movie {
+	width: 200px;
+	height: 300px;
+	margin: 20px;
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	align-items: center;
+}
+.browse .movies .movie a {
+	text-decoration: none;
+}
+.browse .movies .movie .title {
+	background-color: black;
+	margin-top: auto;
+	color: white;
+	height: 40px;
+	display: flex;
+    align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+.browse .movies .movie .price {
+	background-color: black;
+	margin-bottom: auto;
+	color: white;
+	height: 40px;
+	display: flex;
+    align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+@media screen and (max-width: 700px) {
+    main.browse {   
+        flex-direction: column;
+    }
+}
