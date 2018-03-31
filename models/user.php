@@ -35,7 +35,7 @@
 		return array('error');
 	}
 
-	function people_create(string $username, string $email, string $password, string $firstname, string $lastname, string $address, bool $isAdmin = false)
+	function people_create(string $username, string $email, string $password, string $firstname, string $lastname, string $address, int $isAdmin)
 	{
 		$db = database_connect();
 		$err = array();
@@ -67,7 +67,7 @@
 		$lastname = mysqli_real_escape_string($db, $lastname);
 		$address = mysqli_real_escape_string($db, $username);
 		$req = "INSERT INTO peoples (username, email, password, isAdmin, firstname, lastname, address)
-			VALUES ('$username', '$email', '$password', (int)$isAdmin, '$firstname', '$lastname', '$address')";
+			VALUES ('$username', '$email', '$password', '$isAdmin', '$firstname', '$lastname', '$address')";
 		if (mysqli_query($db, $req) === TRUE)
 			return TRUE;
 		return (array('general'));
