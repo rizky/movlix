@@ -1,7 +1,7 @@
 <?php
 	function admin_pass($password)
 	{
-		return hash('ripemd256', hash('whirlpool', '98fsd&(' . $password) . '+fsd!34%');
+		return hash('whirlpool', 'm0vl1x'.$password);
 	}
 
 	function user_pass($password)
@@ -9,8 +9,8 @@
 		return hash('sha256', hash('snefru', '^&fsd+&' . $password) . 'gfd765-+');
 	}
 
-	function get_valid_key()
+	function get_valid_key($username)
 	{
-		return hash("ripemd128", "89fd&^" . $datas['username']);
+		return hash("ripemd128", "m0vl1x".$username);
 	}
 ?>

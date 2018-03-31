@@ -1,13 +1,13 @@
 <header>
-<?
+<?php
 $cartCount = isset($_SESSION['cartCount']) ? $_SESSION['cartCount']  : "Empty";
 ?>
 <ul class="nav">
 	<li><a href="index.php"><i class="fa fa-home"></i> Home</a></li>
 	<li><a href="browse.php"><i class="fa fa-film"></i> Movies</a></li>
 	<li class="nav_logo">Movlix</li>
-	<li><a href="cart.php"><i class="fa fa-shopping-cart"></i> <? echo $cartCount." Cart";?></a></li>
-	<? 
+	<li><a href="cart.php"><i class="fa fa-shopping-cart"></i> <?php echo $cartCount." Cart";?></a></li>
+	<?php
 	if (isset($_SESSION['username']) && !empty($_SESSION['username']))
 		echo '
 		<li class="nav_account">

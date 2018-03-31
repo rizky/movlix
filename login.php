@@ -13,7 +13,7 @@
 		<?php include('components/nav.php'); ?>
 		<main class="login">
 			<h1>Login</h1>
-			<form action="controller/people.php" method="POST">
+			<form action="controllers/user.php" method="POST">
 				<input type="text" name="username" placeholder="Username" class="" value="">
 				<input type="password" name="password" placeholder="Password" class="">
 				<button type="submit" class="btn btn-default">Login</button>

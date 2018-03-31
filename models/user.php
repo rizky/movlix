@@ -37,7 +37,7 @@
 
 	function people_create(string $username, string $email, string $password, string $firstname, string $lastname, string $address, bool $isAdmin = false)
 	{
-		$db = database_connect(); /* Could control if connection worked or not (NULL or NOT) */
+		$db = database_connect();
 		$err = array();
 		if (strlen($username) > 45 || strlen($username) < 5)
 			$err[] = 'username';
@@ -47,10 +47,10 @@
 			$err[] = 'password';
 		else
 		{
-			if ($isAdmin)
+			// if ($isAdmin)
 				$password = admin_pass($password);
-			else
-				$password = user_pass($password);
+		// 	else
+		// 		$password = user_pass($password);
 		}
 		if (strlen($firstname) < 3 || strlen($firstname) > 45)
 			$err[] = 'firstname';
@@ -67,7 +67,7 @@
 		$lastname = mysqli_real_escape_string($db, $lastname);
 		$address = mysqli_real_escape_string($db, $username);
 		$req = "INSERT INTO peoples (username, email, password, isAdmin, firstname, lastname, address)
-			VALUES ('$username', '$email', '$password', '$isAdmin', '$firstname', '$lastname', '$address')";
+			VALUES ('$username', '$email', '$password', (int)$isAdmin, '$firstname', '$lastname', '$address')";
 		if (mysqli_query($db, $req) === TRUE)
 			return TRUE;
 		return (array('general'));
@@ -188,9 +188,9 @@
 	{
 		$db = database_connect();
 
-		$password = user_pass($password);
+		$password = admin_pass($password);
 		$username = mysqli_real_escape_string($db, $username);
-		$req = mysqli_query($db, "SELECT * FROM peoples WHERE username = '$username' AND password = '$password' AND isAdmin = 0");
+		$req = mysqli_query($db, "SELECT * FROM peoples WHERE username = '$username' AND password = '$password'");
 		if (!$req)
 			return null;
 		return mysqli_fetch_assoc($req);
@@ -251,3 +251,4 @@
 		$req = mysqli_query($db, $req);
 		return mysqli_fetch_assoc($req);
 	}
+?>

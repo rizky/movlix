@@ -1,7 +1,7 @@
 <?php
 	session_start();
-	require_once('../model/user.php');
-	require_once('../model/hash.php');
+	require_once('../models/user.php');
+	require_once('../models/hash.php');
 
 	$functions = array('login', 'register', 'update', 'validmail', 'unregister');
 
@@ -21,9 +21,9 @@
 			$err[] = 'lastname';
 		if ($err === NULL)
 		{
-			if (people_exist($datas['username']) === NULL) /* && mail_exist($datas['username']) === NULL) */ // Je me permet de mettre ca de coté pour implémenter les envois de mail. Il y a surement à ameliorer, mais je ne veux pas imposer non plus. Dis moi ce que t'en pense.
+			if (people_exist($datas['username']) === NULL)
 			{
-				$key = get_valid_key();
+				$key = get_valid_key($datas['username']);
 				return (people_create($datas['username'], $datas['email'],  $datas['password'], $datas['firstname'], $datas['lastname'], $key, 0));
 			}
 			else

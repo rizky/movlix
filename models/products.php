@@ -242,3 +242,4 @@
 			$req = mysqli_fetch_assoc($req);
 		return $req;
 	}
+?>

@@ -11,7 +11,7 @@
 		<?php include('components/nav.php'); ?>
 		<main class="register">
 			<h1>Registration</h1>
-			<form action="controller/people.php" method="POST">
+			<form action="controllers/user.php" method="POST">
 				<input type="text" name="username" placeholder="Username" value="" class="<?php echo isset($_GET['username']) ? 'error' : '' ; ?>">
 				<input type="password" name="password" placeholder="Password" class="<?php echo isset($_GET['password']) ? 'error' : '' ; ?>">
 				<input type="password" name="password2" placeholder="Retype Password" class="<?php echo isset($_GET['password']) ? 'error' : '' ; ?>">
