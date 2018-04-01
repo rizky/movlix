@@ -74,16 +74,9 @@ session_start();
 
 	function removeproduct(array $datas)
 	{
-		if ($datas['name'])
+		if ($datas['id'])
 		{
-			if (product_delete($datas['name']) === TRUE)
-				return null;
-			else
-				return (array("Movie does not exist"));
-		}
-		else if ($datas['id'])
-		{
-			if (product_clear_byid($datas['id']) === TRUE)
+			if (product_delete($datas['id']) === TRUE)
 				return NULL;
 			else
 				return (array("Movie does not exist"));

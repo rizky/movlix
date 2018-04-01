@@ -10,15 +10,13 @@
 		$db = database_connect();
 
 		if (strlen($firstname) < 3 || strlen($firstname) > 45)
-			$err[] = 'firstname';
+			$err[] = 'First Name is too short';
 		if (strlen($lastname) < 3 || strlen($lastname) > 45)
-			$err[] = 'lastname';
-		if (strlen($address) < 12 || strlen($address) > 100)
-			$err[] = 'address';
+			$err[] = 'Last Name is too short';
 		if (strlen($password) < 7)
-			$err[] = 'password';
+			$err[] = 'Password is too short';
 		else
-			$password = user_pass($password);
+			$password = encrypt($password);
 
 		if (!empty($err))
 			return ($err);
@@ -60,7 +58,7 @@
 		$password = mysqli_real_escape_string($db, $password);
 		$firstname = mysqli_real_escape_string($db, $firstname);
 		$lastname = mysqli_real_escape_string($db, $lastname);
-		$address = mysqli_real_escape_string($db, $username);
+		$address = mysqli_real_escape_string($db, $address);
 		$req = "INSERT INTO peoples (username, email, password, isAdmin, firstname, lastname, address)
 			VALUES ('$username', '$email', '$password', '$isAdmin', '$firstname', '$lastname', '$address')";
 		if (mysqli_query($db, $req) === TRUE)
@@ -83,10 +81,7 @@
 				$err[] = 'password';
 			else
 			{
-				if ($datas['isAdmin'])
-					$password = encrypt($datas['password']);
-				else
-					$password = user_pass($datas['password']);
+				$password = encrypt($datas['password']);
 				$req['password'] = $password;
 			}
 		}
@@ -104,13 +99,7 @@
 			else
 				$req['lastname'] = mysqli_real_escape_string($db, $datas['lastname']);
 		}
-		if ($datas['address'])
-		{
-			if (strlen($datas['address']) < 3 || strlen($datas['address']) > 45)
-				$err[] = 'address';
-			else
-				$req['address'] = mysqli_real_escape_string($db, $datas['address']);
-		}
+		$req['address'] = mysqli_real_escape_string($db, $datas['address']);
 		if ($datas['isAdmin'])
 			$req['isAdmin'] = $datas['isAdmin'];
 		if ($datas['username'])
@@ -144,7 +133,7 @@
 	{
 		global $deleted_account;
 		$username = mysqli_real_escape_string($db, $username);
-		$password = user_pass($password);
+		$password = encrypt($password);
 		$req = "UPDATE peoples set (username, email, password, isAdmin, firstname, lastname, address, cookie, valid) VALUES
 			('$deteted_account', '', '', 0, '', '', '', '', '') WHERE username = '$username' AND password = '$password'";
 	}

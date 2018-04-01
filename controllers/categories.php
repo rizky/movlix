@@ -2,7 +2,7 @@
   session_start();
     require_once('../models/categories.php');
     require_once('../models/products.php');
-    include('../models/prod_has_cat.php');
+    require_once('../models/prod_has_cat.php');
 
     $functions = array('removecategory', 'addcategorie', 'updatecategorie');
 
@@ -33,7 +33,7 @@
         $err[] = 'name';
       if ($err !== NULL)
         return $err;
-      if (category_get($data['oldname']))
+      if (!category_get($data['oldname']))
       {
         if (category_update($data['oldname'], $data['name']) === TRUE)
           return NULL;

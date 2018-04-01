@@ -25,8 +25,7 @@
 		{
 			if (people_exist($datas['username']) === NULL)
 			{
-				$key = get_valid_key($datas['username']);
-				return (people_create($datas['username'], $datas['email'],  $datas['password'], $datas['firstname'], $datas['lastname'], $key, 0));
+				return (people_create($datas['username'], $datas['email'],  $datas['password'], $datas['firstname'], $datas['lastname'], $datas['address'], 0));
 			}
 			else
 				return (array('Username exists'));
@@ -53,17 +52,10 @@
 
 	function update(array $datas)
 	{
-		if ($_SESSION['admin']) {
-			if (people_exist($datas['username']))
-				return (people_update2($datas['username'], $datas['firstname'], $datas['lastname'], $datas['password'], $datas['address']));
-			else
-				return (array('Account does not exist'));
-		} else {
-			if (people_exist($_SESSION['username']))
-				return (people_update2($_SESSION['username'], $datas['firstname'], $datas['lastname'], $datas['password'], $datas['address']));
-			else
-				return (array('Account does not exist'));
-		}
+		if (people_exist($_SESSION['username']))
+			return (people_update2($datas['username'], $datas['firstname'], $datas['lastname'], $datas['password'], $datas['address']));
+		else
+			return (array('Account does not exist'));
 	}
 
 	function login_bycookie(array $datas)

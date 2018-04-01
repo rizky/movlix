@@ -28,9 +28,10 @@
 			<div class="user">
 				<h2>User</h2>
 				<h5>Add</h5>
-				<form action="controllers/people.php" method="POST">
+				<form action="controllers/user.php" method="POST">
 					<input type="text" name="username" placeholder="Username">
 					<input type="password" name="password" placeholder="Password">
+					<input type="password" name="password2" placeholder="Rewrite Password">
 					<input type="email" name="email" placeholder="Email">
 					<input type="text" name="firstname" placeholder="First Name">
 					<input type="text" name="lastname" placeholder="Last Name">
@@ -41,7 +42,7 @@
 					<button type="submit" class="btn btn-default">Add</button>
 				</form>
 				<h5>Delete</h5>
-				<form action="controllers/people.php" method="POST">
+				<form action="controllers/user.php" method="POST">
 					<select name="username">
 					<?php
 						foreach($peoples as $v) {
@@ -55,7 +56,7 @@
 					<button type="submit" class="btn btn-default">Delete</button>
 				</form>
 				<h5>Modify</h5>
-				<form action="controllers/people.php" method="POST">
+				<form action="controllers/user.php" method="POST">
 					<select name="username">
 					<?php
 						foreach($peoples as $v) {
@@ -125,10 +126,10 @@
 				</form>
 				<h5>Delete</h5>
 				<form action="controllers/products.php" method="POST">
-					<select name="name">
+					<select name="id">
 						<?php
 							foreach($products as $v) {
-								echo "<option value='".$v['name']."'>".$v['name']."</option>";
+								echo "<option value='".$v['id']."'>".$v['name']."</option>";
 							}
 						?>
 					</select>
