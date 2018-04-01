@@ -6,6 +6,7 @@
 		$db = database_connect();
 		$req = "INSERT INTO orders (peoples_id) VALUES ('$id')";
 		$req = mysqli_query($db, $req);
+		$req = mysqli_insert_id($db);
 		return ($req);
 	}
 
