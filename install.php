@@ -119,7 +119,7 @@
 
 	$db = database_connect();
 	$req = mysqli_query($db, $req);
-	$api_key = '?api_key=db663b344723dd2d6781aed1e2f7764d';
+	$api_key = '?api_key=48c1e38beaccdbb33002349cb57e5d60';
 	$request_base = 'http://api.themoviedb.org/3/movie/';
 	$time = microtime(TRUE);
 	echo "\nFilling movie database. This may take several minutes<br \>\n";
