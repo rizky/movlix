@@ -49,8 +49,6 @@
 			$err[] = 'First Name is too short';
 		if (strlen($lastname) < 3 || strlen($lastname) > 45)
 			$err[] = 'Last Name is too short';
-		if (strlen($address) < 12 || strlen($address) > 100)
-			$err[] = 'Address is too short';
 		if (!empty($err))
 			return ($err);
 		$username = mysqli_real_escape_string($db, $username);
