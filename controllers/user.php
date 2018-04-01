@@ -27,7 +27,7 @@
 				return (people_create($datas['username'], $datas['email'],  $datas['password'], $datas['firstname'], $datas['lastname'], $key, 0));
 			}
 			else
-				return (array('exist'));
+				return (array('Username exists'));
 		}
 		else
 			return $err;
@@ -43,7 +43,7 @@
 			if (people_delete($datas['username']) === TRUE)
 				return NULL;
 			else
-				return (array('Account is not found'));
+				return (array('Account could not be found'));
 		}
 		else
 			return ($err);
@@ -55,12 +55,12 @@
 			if (people_exist($datas['username']))
 				return (people_update2($datas['username'], $datas['firstname'], $datas['lastname'], $datas['password'], $datas['address']));
 			else
-				return (array('no exist'));
+				return (array('Account does not exist'));
 		} else {
 			if (people_exist($_SESSION['username']))
 				return (people_update2($_SESSION['username'], $datas['firstname'], $datas['lastname'], $datas['password'], $datas['address']));
 			else
-				return (array('no exist'));
+				return (array('Account does not exist'));
 		}
 	}
 

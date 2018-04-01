@@ -18,10 +18,10 @@
         if (category_create($data['name']) === TRUE)
           return NULL;
         else
-          return array('unknown error');
+          return array('Unknown Error');
       }
       else
-        return array('alreadyexist');
+        return array('Category is already exist');
     }
 
     function updatecategorie(array $data)
@@ -38,10 +38,10 @@
         if (category_update($data['oldname'], $data['name']) === TRUE)
           return NULL;
         else
-          return array('Unknow error');
+          return array('Unknow Error');
       }
       else
-        return array('alreadyexist');
+        return array('Category is already exist');
     }
 
     function removecategory(array $data)
@@ -61,7 +61,7 @@
             }
 
         } else
-            return array("notexist");
+            return array("Category is not exist");
     }
 
     if ($_POST['from'] && in_array($_POST['from'], $functions)) {

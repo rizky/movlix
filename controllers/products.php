@@ -46,7 +46,7 @@ session_start();
 		$req['picture'] = null;
 		if (product_create($req['name'], $req['picture'], $req['isAdult'], $req['price'], $req['databaseid']))
 			return NULL;
-		return array('error');
+		return array('Error');
 	}
 
 	function updateproduct(array $datas)
@@ -69,7 +69,7 @@ session_start();
 			$datas['picture'] = $datas['picture'];
 		if (product_create2($datas['name'], $datas['picture'], $datas['isAdult'], $datas['price'], $datas['databaseid'], $datas['stock'], $datas['id']))
 			return NULL;
-		return array('error');
+		return array('Error');
 	}
 
 	function removeproduct(array $datas)
@@ -79,17 +79,17 @@ session_start();
 			if (product_delete($datas['name']) === TRUE)
 				return null;
 			else
-				return (array("notexist"));
+				return (array("Movie does not exist"));
 		}
 		else if ($datas['id'])
 		{
 			if (product_clear_byid($datas['id']) === TRUE)
 				return NULL;
 			else
-				return (array("notexist"));
+				return (array("Movie does not exist"));
 		}
 		else
-			return (array("datanotfound"));
+			return (array("Movie could not be found"));
 	}
 
 	if ($_POST['from'] && in_array($_POST['from'], $functions)) {
