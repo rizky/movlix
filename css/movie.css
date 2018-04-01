@@ -1,5 +1,6 @@
 .movie .description {
 	display: flex;
+	width: 100%;
 }
 
 .movie .description .thumbnail {
@@ -15,21 +16,32 @@
 	padding: 20px;
 	display: flex;
 	flex-wrap: wrap;
+	width: 100%;
 }
 
 .movie div.photo {
 	width: 100px;
-	height: 100px;
+    height: 150px;
 	margin: 20px;
+	display: flex;
+    flex-direction: column;
+    align-content: center;
+	align-items: center;
+	background-position: center center;
+	background-size: cover;
 }
-
 .movie div.photo .title {
 	background-color: black;
 	margin-top: auto;
 	color: white;
 	height: 40px;
 	display: flex;
+    flex-direction: column;
+    align-content: center;
     align-items: center;
-	justify-content: center;
 	width: 100%;
+}
+.movie div.photo .title p {
+	font-size: 10px;
+	margin: 0 auto;
 }

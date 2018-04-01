@@ -15,8 +15,8 @@
 				<h2>Filter</h2>
 				<form action="">
 					<input type="text" name="name" value="<?php echo isset($_GET['name']) ? $_GET['name'] : '' ; ?>" placeholder="Film Name">
-					<input type="number" name="min" value="<?php echo isset($_GET['min']) ? $_GET['min'] : '' ; ?>" placeholder="Minimum Price" style="width:49%;">
-					<input type="number" name="max" value="<?php echo isset($_GET['max']) ? $_GET['max'] : '' ; ?>" placeholder="Maximum Price" style="width:49%;">
+					<input type="number" name="min" value="<?php echo isset($_GET['min']) ? $_GET['min'] : '' ; ?>" placeholder="Minimum Price">
+					<input type="number" name="max" value="<?php echo isset($_GET['max']) ? $_GET['max'] : '' ; ?>" placeholder="Maximum Price">
 					<input type="hidden" name="cat" value="<?php echo $_GET['cat']; ?>">
 					<button type="submit" class="btn btn-default">Search</button>
 				</form>

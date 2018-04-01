@@ -1,7 +1,19 @@
 .browse .filter {
-    flex: 30%;
-    background-color: #cae4f7;
-    padding: 20px;
+	flex: 30%;
+	max-width: 200px;
+	padding: 20px;
+	height: 400px;
+	align-items: center;
+	border: 1px solid rgba(238,238,238 ,1);
+	border-radius: 5px;
+	color: rgba(117,117,117 ,1);
+	box-shadow: 5px 10px 20px -20px rgba(85,172,238 ,1);
+	text-align: center;
+}
+.browse .filter form {
+    margin-top: 0em;
+    display: flex;
+    flex-direction: column;
 }
 .browse .movies {
     flex: 70%;
@@ -19,6 +31,8 @@
 	flex-direction: column;
 	align-content: center;
 	align-items: center;
+	background-position: center center;
+	background-size: cover;
 }
 .browse .movies .movie a {
 	text-decoration: none;

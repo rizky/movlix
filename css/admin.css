@@ -6,6 +6,7 @@
 .admin div{
 	flex: 30%;
 	padding-right: 50px;
+	min-width: 300px;
 }
 .admin div form {
 	display: flex;

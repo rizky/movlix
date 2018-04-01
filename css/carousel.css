@@ -1,6 +1,7 @@
 #carousel {
 	height: 400px;
 	top: 50%;
+	margin-top: -200px;
 }
 #carousel div {
 	position: absolute;
