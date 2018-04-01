@@ -73,6 +73,7 @@
 							?>
 							</tbody>
 						</table>
+						<a href="order.php?order_id=<?php echo $o['id']; ?>">Print</a>
 						<?php
 					}
 					echo "</div>";
