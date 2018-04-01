@@ -125,10 +125,25 @@
 	echo "\nFilling movie database. This may take several minutes<br \>\n";
 	$start = 500;
 	$max = $start + 10;
+	$movieids = array();
+	
 	for ($i = $start; $i < $max; $i++)
 	{
+		$movieids[] = $i;
+	}
+	$movieids[] = 399055;
+	$movieids[] = 272;
+	$movieids[] = 297762;
+	$movieids[] = 181808;
+	$movieids[] = 198663;
+	$movieids[] = 13230;
+	$movieids[] = 7453;
+	$movieids[] = 13230;
+	for ($i = 0; $i < count($movieids); $i++)
+	{
+		$ids = $movieids[$i];
 		$price = (float)(mt_rand(80, 260) / 10);
-		$a = @file_get_contents($request_base . $i . $api_key);
+		$a = @file_get_contents($request_base . $ids . $api_key);
 		if ($a)
 			$data = (array)json_decode($a);
 		else
@@ -149,7 +164,7 @@
 					category_create($genre);
 				}
 				$isAdult = $data['adult'] ? 1 : 0;
-				$ret = product_create($data['original_title'], $data['poster_path'], $isAdult, $price, $i);
+				$ret = product_create($data['original_title'], $data['poster_path'], $isAdult, $price, $ids);
 				if ($ret === TRUE && $genre)
 				{
 					$cat = category_get($genre);

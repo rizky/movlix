@@ -8,6 +8,14 @@
 	transition: transform 1s, left 1s, opacity 1s, z-index 0s;
 	opacity: 1;
 }
+#carousel div a {
+	position: fixed;
+    text-align: center;
+    background-color: black;
+    width: 100%;
+    color: white;
+    bottom: 20px;
+}
 #carousel div img {
 	width: 400px;
 	transition: width 1s;
