@@ -40,7 +40,6 @@ main.admin {
 	flex-wrap: wrap;
 	overflow: auto;
 	flex-direction: row;
-	align-items: center;
 }
 main.movie {
 	flex-wrap: wrap;
