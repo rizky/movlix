@@ -28,7 +28,7 @@
 		<main class="account">
 			<div class="modify">
 				<h2>Modify my informations</h2>
-				<form action="controller/people.php" method="POST">
+				<form action="controller/user.php" method="POST">
 					<input type="password" name="password" placeholder="New password" value=""
 						class="<?php echo isset($_GET['password']) ? 'error' : ''; ?>">
 					<input type="text" name="firstname" placeholder="First name" value="<?php echo $people['firstname']; ?>"

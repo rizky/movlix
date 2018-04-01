@@ -28,7 +28,7 @@
 			<div class="user">
 				<h2>User</h2>
 				<h5>Add</h5>
-				<form action="controllers/people.php" method="POST">
+				<form action="controllers/user.php" method="POST">
 					<input type="text" name="username" placeholder="Username">
 					<input type="password" name="password" placeholder="Password">
 					<input type="email" name="email" placeholder="Email">
@@ -41,7 +41,7 @@
 					<button type="submit" class="btn btn-default">Add</button>
 				</form>
 				<h5>Delete</h5>
-				<form action="controllers/people.php" method="POST">
+				<form action="controllers/user.php" method="POST">
 					<select name="username">
 					<?php
 						foreach($peoples as $v) {
@@ -55,7 +55,7 @@
 					<button type="submit" class="btn btn-default">Delete</button>
 				</form>
 				<h5>Modify</h5>
-				<form action="controllers/people.php" method="POST">
+				<form action="controllers/user.php" method="POST">
 					<select name="username">
 					<?php
 						foreach($peoples as $v) {
