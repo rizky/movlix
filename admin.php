@@ -125,10 +125,10 @@
 				</form>
 				<h5>Delete</h5>
 				<form action="controllers/products.php" method="POST">
-					<select name="name">
+					<select name="id">
 						<?php
 							foreach($products as $v) {
-								echo "<option value='".$v['name']."'>".$v['name']."</option>";
+								echo "<option value='".$v['id']."'>".$v['name']."</option>";
 							}
 						?>
 					</select>

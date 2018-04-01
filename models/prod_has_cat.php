@@ -29,10 +29,10 @@
 		return ($req);
 	}
 
-	function link_prodcat_delete_byprod(int $category_id)
+	function link_prodcat_delete_byprod(int $products_id)
 	{
 		$db = database_connect();
-		$req = "DELETE FROM products_has_categories WHERE categories_id = '$category_id'";
+		$req = "DELETE FROM products_has_categories WHERE products_id = '$products_id'";
 		$req = mysqli_query($db, $req);
 		return ($req);
 	}

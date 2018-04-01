@@ -1,6 +1,6 @@
 <?php
 	require_once('mysqli.php');
-
+	require_once('prod_has_cat.php');
 
 	function product_create(string $name, string $picture = NULL, int $isAdult, float $price, int $databaseid)
 	{
@@ -119,11 +119,12 @@
 		return null;
 	}
 
-	function product_delete(string $name)
+	function product_delete(string $id)
 	{
 		$db = database_connect();
-		$name = mysqli_real_escape_string($db, $name);
-		$req = "DELETE FROM products WHERE name = '$name'";
+		$id = mysqli_real_escape_string($db, $id);
+		$req = link_prodcat_delete_byprod($id);
+		$req = "DELETE FROM products WHERE id = '$id'";
 		$req = mysqli_query($db, $req);
 		if ($req)
 			return true;
