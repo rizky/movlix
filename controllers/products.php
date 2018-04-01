@@ -95,7 +95,7 @@ session_start();
 	if ($_POST['from'] && in_array($_POST['from'], $functions)) {
 		if (($err = $_POST['from']($_POST))) {
 			$str_error = http_build_query($err);
-			header('Location: ../'.$_POST['success'].'.php?'.'toast='.$str_error);
+			header('Location: ../'.$_POST['success'] . '.php?' . 'toast=' . $str_error);
 		} else
 			header('Location: ../'.$_POST['success'] . '.php');
 	}
