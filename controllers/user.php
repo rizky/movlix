@@ -53,17 +53,10 @@
 
 	function update(array $datas)
 	{
-		if ($_SESSION['admin']) {
-			if (people_exist($datas['username']))
-				return (people_update2($datas['username'], $datas['firstname'], $datas['lastname'], $datas['password'], $datas['address']));
-			else
-				return (array('Account does not exist'));
-		} else {
-			if (people_exist($_SESSION['username']))
-				return (people_update2($_SESSION['username'], $datas['firstname'], $datas['lastname'], $datas['password'], $datas['address']));
-			else
-				return (array('Account does not exist'));
-		}
+		if (people_exist($_SESSION['username']))
+			return (people_update2($datas['username'], $datas['firstname'], $datas['lastname'], $datas['password'], $datas['address']));
+		else
+			return (array('Account does not exist'));
 	}
 
 	function login_bycookie(array $datas)

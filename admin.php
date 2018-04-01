@@ -31,6 +31,7 @@
 				<form action="controllers/user.php" method="POST">
 					<input type="text" name="username" placeholder="Username">
 					<input type="password" name="password" placeholder="Password">
+					<input type="password" name="password2" placeholder="Rewrite Password">
 					<input type="email" name="email" placeholder="Email">
 					<input type="text" name="firstname" placeholder="First Name">
 					<input type="text" name="lastname" placeholder="Last Name">

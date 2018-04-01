@@ -28,7 +28,7 @@
 		<main class="account">
 			<div class="modify">
 				<h2>Modify my informations</h2>
-				<form action="controller/user.php" method="POST">
+				<form action="controllers/user.php" method="POST">
 					<input type="password" name="password" placeholder="New password" value=""
 						class="<?php echo isset($_GET['password']) ? 'error' : ''; ?>">
 					<input type="text" name="firstname" placeholder="First name" value="<?php echo $people['firstname']; ?>"
@@ -38,6 +38,7 @@
 					<input type="text" name="address" placeholder="Address" value="<?php echo $people['address']; ?>"
 						class="<?php echo isset($_GET['address']) ? 'error' : ''; ?>">
 					<button type="submit" class="btn btn-default">Modify</button>
+					<input type="hidden" name="username" value="<?php echo $people['username']; ?>">
 					<input type="hidden" name="success" value="account">
 					<input type="hidden" name="from" value="update">
 					<input type="hidden" name="error" value="account">
