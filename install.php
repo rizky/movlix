@@ -5,8 +5,8 @@
 	require_once('models/prod_has_cat.php');
 	require_once('models/user.php');
 	require_once('models/hash.php');
-	$hostname = "127.0.0.1"; //for debugging
-	// $hostname = "db";
+	// $hostname = "127.0.0.1"; //for debugging
+	$hostname = "db";
 	$user = "root";
 	$pass = "root";
 
