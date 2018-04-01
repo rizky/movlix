@@ -29,6 +29,13 @@ main.register {
 	align-items: center;
 	flex-direction: column;
 }
+main.register form {
+    display: flex;
+    flex-direction: column;
+}
+main.register form * {
+    margin: 5px;
+}
 main.admin {
 	flex-wrap: wrap;
 	overflow: auto;
@@ -46,4 +53,14 @@ main.cart {
 	overflow: auto;
 	flex-direction: row;
 	align-items: center;
+}
+main.account div {
+	margin: 50px;
+}
+main.account div form {
+	display: flex;
+	flex-direction: column;
+}
+div form * {
+    margin: 5px;
 }
