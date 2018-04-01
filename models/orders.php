@@ -32,8 +32,7 @@
 	function order_get_bypeopleid(int $people_id)
 	{
 		$db = database_connect();
-		$req = "SELECT * FROM orders INNER JOIN orders_has_products AS op ON op.orders_id = orders.id
-									 INNER JOIN products ON products.id = op.products_id WHERE peoples_id = '$people_id'";
+		$req = "SELECT * FROM orders WHERE peoples_id = '$people_id'";
 		$req = mysqli_query($db, $req);
 		if ($req)
 			return mysqli_fetch_all($req, MYSQLI_ASSOC);

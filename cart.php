@@ -3,7 +3,7 @@
     require_once('models/products.php');
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['id']) {
         $movies = product_get_byid($_POST['id']);
-        if ($_POST['quantity'] && is_numeric($_POST['quantity']) && $_POST['quantity'] > 0 && $movies) {
+        if ($_POST['quantity'] && is_numeric($_POST['quantity']) && $_POST['quantity'] > 0 && $movies && $movies['stock'] > 0) {
             $basket = unserialize($_SESSION['basketMovie']);
             if ($basket[$_POST['id']]) {
                 $basket[$_POST['id']] += $_POST['quantity'];
@@ -16,7 +16,7 @@
             }
             $_SESSION['basketMovie'] = serialize($basket);
         } else {
-            header('Location: movie.php?id=' . $_POST['id']);
+            header('Location: movie.php?id='.$_POST['id'].'&toast=Out of stock');
             exit();
         }
     }
@@ -25,7 +25,15 @@
         $_SESSION['basketPrice'] = null;
         $_SESSION['basketCount'] = null;
     }
-    $basket = unserialize($_SESSION['basketMovie']);
+	$basket = unserialize($_SESSION['basketMovie']);
+	if ($_GET['removemovie'])
+	{
+		$movies = product_get_byid($_GET['removemovie']);
+		$_SESSION['basketCount'] -= $_GET['removecount'];
+		$_SESSION['basketPrice'] -= $movies['price'] * $_GET['removecount'];
+		unset($basket[$_GET['removemovie']]);
+		$_SESSION['basketMovie'] = serialize($basket);
+	}
 ?>
 <html lang="en">
 	<?php $page_name="Cart"; include('components/header.php'); ?>
@@ -64,6 +72,9 @@
 							<td class="right"><?php echo number_format($movies['price'], 2); ?> €</td>
 							<td class="right"><?php echo $v ?></td>
 							<td class="right"><?php echo number_format($movies['price'] * $v, 2); ?> €</td>
+							<td class="right">
+								<a href='cart.php?removemovie=<?php echo $k; ?>&removecount=<?php echo $v; ?>' class='button' style="background-color:red">Remove</a>
+							</td>
 						</tr>
 						<?php
 					}

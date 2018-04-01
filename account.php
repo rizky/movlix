@@ -53,7 +53,7 @@
 						<table class="basket">
 							<tbody>
 							<?php
-								$products = prod_get_byord(intval($o['orders_id']));
+								$products = prod_get_byord(intval($o['id']));
 								foreach ($products as $p2) {
 									$p = product_get_byid($p2['products_id']);
 									?>

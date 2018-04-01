@@ -43,7 +43,7 @@
 			if (people_delete($datas['username']) === TRUE)
 				return NULL;
 			else
-				return (array('accountnotfound'));
+				return (array('Account is not found'));
 		}
 		else
 			return ($err);
@@ -76,7 +76,7 @@
 		{
 			$datas = people_get($datas['username'], $datas['pasrd']);
 			if ($datas === NULL)
-				return (array('notfound'));
+				return (array('User not found'));
 			$_SESSION['username'] = $datas['username'];
 			return NULL;
 		}
@@ -95,7 +95,7 @@
 		{
 			$datas = people_get($datas['username'], $datas['password']);
 			if ($datas === NULL)
-				return (array('notfound'));
+				return (array('User not found'));
 			$_SESSION['username'] = $datas['username'];
 			return NULL;
 		}
@@ -108,10 +108,10 @@
 		if (!($err === TRUE || $err === null)) {
 			$str_error = implode('&', $err);
 			if ($_POST['error']){
-				header('Location: ../' . $_POST['error'] . '.php?' . $str_error);
+				header('Location: ../' . $_POST['error'] . '.php?' . 'toast=' . $str_error);
 				exit();
 			}
-			header('Location: ../' . $_POST['from'] . '.php?' . $str_error);
+			header('Location: ../' . $_POST['from'] . '.php?' . 'toast=' .  $str_error);
 			exit();
 		}
 		header('Location: ../' . $_POST['success'] . '.php');
