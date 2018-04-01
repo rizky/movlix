@@ -7,3 +7,9 @@
 	display: flex;
 	flex-wrap: wrap;
 }
+.cart td{
+	min-width: 100px;
+}
+.cart table{
+	max-width: 1178px;
+}
