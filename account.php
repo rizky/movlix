@@ -69,10 +69,10 @@
 									</tr>
 									<?php
 								}
-
 							?>
 							</tbody>
 						</table>
+						<center><a href="order.php?order_id=<?php echo $o['id']; ?>">Print</a></center>
 						<?php
 					}
 					echo "</div>";
