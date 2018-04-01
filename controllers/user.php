@@ -64,29 +64,6 @@
 		}
 	}
 
-	function validmail(array $datas)
-	{
-		if ($datas['$key']) // ... imo, receive on validmail.html?key=...., send here on POST. AND Ajax this later :D
-		{
-			if ($_SESSION['username']) // Could ask password and change people_exist to people_get. Like in many other functions. I don't think it is necessary
-			{
-				$username = $_SESSION['username'];
-				$people = people_exist($username);
-				if ($datas['key'])
-				{
-					if ($people['key'] == $datas['$key'])
-					{
-						$tab['key'] = "";
-					}
-				}
-				else
-					return array("alreadyvalid");
-			}
-			else
-				return array("notlogin");
-		}
-	}
-
 	function login_bycookie(array $datas)
 	{
 		$err = NULL;
