@@ -196,7 +196,7 @@
 	function product_updatestock_byid(int $id, int $number)
 	{
 		$db = database_connect();
-		$req = "UPDATE products set stock = $stock WHERE id = '$id'";
+		$req = "UPDATE products set stock = $number WHERE id = '$id'";
 		$req = mysqli_query($db, $req);
 		return $req;
 	}
