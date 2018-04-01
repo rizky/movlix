@@ -6,6 +6,10 @@
 .cart .checkout {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
+}
+.cart .checkout * {
+	margin: 5px;
 }
 .cart td{
 	min-width: 100px;
