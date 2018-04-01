@@ -21,7 +21,7 @@
     $products = products_get();
 ?>
 <html lang="en">
-	<?php $page_name="Login"; include('components/header.php'); ?>
+	<?php $page_name="Admin"; include('components/header.php'); ?>
 	<body class="wrapper">
 		<?php include('components/nav.php'); ?>
 		<main class="admin">
