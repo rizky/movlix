@@ -46,12 +46,7 @@
 		if (strlen($password) < 7)
 			$err[] = 'password';
 		else
-		{
-			// if ($isAdmin)
-				$password = admin_pass($password);
-		// 	else
-		// 		$password = user_pass($password);
-		}
+			$password = encrypt($password);
 		if (strlen($firstname) < 3 || strlen($firstname) > 45)
 			$err[] = 'firstname';
 		if (strlen($lastname) < 3 || strlen($lastname) > 45)
@@ -72,8 +67,6 @@
 			return TRUE;
 		return (array('general'));
 	}
-
-
 /*
   * peoples_update takes an array supposed to contain same datas than peoples_create params
   * and a boolean, if setted as 1 (default == 0) giving possibilities to update every 'good'
@@ -229,17 +222,6 @@
 			return null;
 		return mysqli_fetch_all($req, MYSQLI_ASSOC);
 	}
-
-	function mail_exist($username)
-	{
-		$db = database_connect();
-
-		$mail = mysqli_real_escape_string($db, $mail);
-		$req = "SELECT * FROM peoples WHERE mail = '$mail'";
-		$req = mysqli_query($db, $req);
-		return mysqli_fetch_assoc($req);
-	}
-
 
 	function admin_get($username, $password)
 	{
