@@ -5,7 +5,7 @@ session_start();
 	require_once('../models/products.php');
 	require_once('../models/ord_has_prod.php');
 
-	$functions = array('get_order', 'del_orders', 'add_order', 'basket');
+	$functions = array('get_order', 'del_orders', 'add_order', 'cart');
 
 	function get_order(array $datas)
 	{
@@ -62,7 +62,7 @@ session_start();
 			return array("username" => "notexist");
 	}
 
-	function basket()
+	function cart()
 	{
 		$basket = unserialize($_SESSION['basketMovie']);
 
@@ -84,6 +84,11 @@ session_start();
 			$str_error = http_build_query($err);
 			header('Location: ../' . $_POST['from'] . '.php?' . $str_error);
 		} else
+		{
+			$_SESSION['basketMovie'] = null;
+			$_SESSION['basketPrice'] = null;
+			$_SESSION['basketCount'] = null;
 			header('Location: ../' . $_POST['success'] . '.php');
+		}
 	}
 ?>

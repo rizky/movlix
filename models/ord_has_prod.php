@@ -20,8 +20,7 @@
 		if ($get)
 		{
 			$price = $get['price'];
-			$req = "INSERT INTO orders_has_products (orders_id, products_id, price, quantity)
-				VALUES('$orders_id', '$products_id', '$price', '$quantity')";
+			$req = "INSERT INTO orders_has_products (orders_id, products_id, price, quantity)VALUES('$orders_id', '$products_id', '$price', '$quantity')";
 			$req = mysqli_query($db, $req);
 			return ($req);
 		}
