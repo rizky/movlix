@@ -52,9 +52,9 @@
 						<td>ID</td>
 						<td>Name</td>
 						<td></td>
-						<td class="right">Price</td>
-						<td class="right">Quantity</td>
-						<td class="right">Total TTC</td>
+						<td>Price</td>
+						<td>Quantity</td>
+						<td>Total TTC</td>
 					</tr>
 					</thead>
 					<tbody>
@@ -71,11 +71,11 @@
 							<td class="title"><a
 									href="movie.php?id=<?php echo $k; ?>"><?php echo $movies['name']; ?></a>
 							</td>
-							<td class="right"><?php echo number_format($movies['price'], 2); ?> €</td>
-							<td class="right"><?php echo $v ?></td>
-							<td class="right"><?php echo number_format($movies['price'] * $v, 2); ?> €</td>
-							<td class="right">
-								<a href='cart.php?removemovie=<?php echo $k; ?>&removecount=<?php echo $v; ?>' class='button' style="background-color:red">Remove</a>
+							<td><?php echo number_format($movies['price'], 2); ?> €</td>
+							<td><?php echo $v ?></td>
+							<td><?php echo number_format($movies['price'] * $v, 2); ?> €</td>
+							<td>
+								<a href='cart.php?removemovie=<?php echo $k; ?>&removecount=<?php echo $v; ?>' class='button'>Remove</a>
 							</td>
 						</tr>
 						<?php
@@ -93,7 +93,7 @@
 				</table>
 				<div class="checkout">
 					<div>
-						<a href='cart.php?remove=1' class='button' style="background-color:red">Cancel cart</a>
+						<a href='cart.php?remove=1' class='button'>Cancel cart</a>
 					</div>
 					<div>
 						<?php
