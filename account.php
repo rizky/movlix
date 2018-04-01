@@ -37,10 +37,10 @@
 						class="<?php echo isset($_GET['lastname']) ? 'error' : ''; ?>">
 					<input type="text" name="address" placeholder="Address" value="<?php echo $people['address']; ?>"
 						class="<?php echo isset($_GET['address']) ? 'error' : ''; ?>">
-					<button type="submit" class="btn btn-default">Modifier</button>
-					<input type="hidden" name="success" value="member">
+					<button type="submit" class="btn btn-default">Modify</button>
+					<input type="hidden" name="success" value="account">
 					<input type="hidden" name="from" value="update">
-					<input type="hidden" name="error" value="member">
+					<input type="hidden" name="error" value="account">
 				</form>
 			</div>
 			<div class="orders">
@@ -53,7 +53,7 @@
 						<table class="basket">
 							<tbody>
 							<?php
-								$products = prod_get_byord(intval($o['orders_id']));
+								$products = prod_get_byord(intval($o['id']));
 								foreach ($products as $p2) {
 									$p = product_get_byid($p2['products_id']);
 									?>

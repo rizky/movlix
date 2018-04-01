@@ -1,12 +1,14 @@
 <?php
-    session_start();
-    if (!$_GET['id'] || !is_numeric($_GET['id'])) {
+	session_start();
+	if (!$_GET['id'] || !is_numeric($_GET['id']))
+	{
         header('Location: browse.php');
         exit();
     }
     require_once ('models/products.php');
     $product = product_get_byid($_GET['id']);
-    if (!$product) {
+	if (!$product)
+	{
         header('Location: browse.php');
         exit();
     }

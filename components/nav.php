@@ -1,7 +1,6 @@
 <header>
 <?php
 	session_start();
-
 	require_once ('models/user.php');
 	$cartCount = isset($_SESSION['basketCount']) ? $_SESSION['basketCount']  : "Empty";
 	$admin = admin_exist($_SESSION['username']);

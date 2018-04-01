@@ -25,41 +25,28 @@ session_start();
 			if (del_order($user['id']) === TRUE)
 				return NULL;
 			else
-				return array("order" => "notexist");
+				return array("Order does not exist");
 		}
 		else
-			return array("username" => "notexist");
+			return array("Username does not exist");
 	}
 
-	function add_order(int $product_id, int $quantity, string $username)
+	function add_order(int $product_id, int $quantity, string $order_id)
 	{
-		$people = people_exist($username);
-		if ($people)
+		$stock = stock_get_byid($product_id);
+		if ($stock >= $quantity)
 		{
-			$stock = stock_get_byid($product_id);
-			if ($stock >= $quantity)
+			$prod = prod_add_toord($product_id, $order_id, $quantity);
+			if ($prod === TRUE)
 			{
-				if (order_get_bypid($people['id']) === NULL)
-					order_create($people['id']);
-				$order = order_get_bypid($people['id']);
-				if ($order)
-				{
-					$prod = prod_add_toord($product_id, $order['id'], $quantity);
-					if ($prod === TRUE)
-					{
-						product_updatestock_byid($product_id, $stock - $quantity);
-						return (NULL);
-					}
-					else
-						return (array("add_order" => "fail"));
-				}
-				return array("commandfound");
+				product_updatestock_byid($product_id, $stock - $quantity);
+				return (NULL);
 			}
-				else
-					return (array("outofstock" => $stock));
+			else
+				return (array("Add order fail"));
 		}
-		else
-			return array("username" => "notexist");
+			else
+				return (array("One of the movie is out of stock"));
 	}
 
 	function cart()
@@ -68,21 +55,28 @@ session_start();
 
 		if ($_SESSION['username'])
 		{
-			foreach($basket as $k => $v)
+			$people = people_exist($_SESSION['username']);
+			if ($people)
 			{
-				$ret = add_order($k, $v, $_SESSION['username']);
-				if ($ret !== NULL)
-					$err[] = $ret;
+				$order_id = order_create($people['id']);
+				foreach($basket as $k => $v)
+				{
+					$ret = add_order($k, $v, $order_id);
+					if ($ret !== NULL)
+						$err[] = $ret;
+				}
+				return $err;
 			}
-			return $err;
+			else
+				return array("No user found");
 		}
-		return array('notconnected');
+		return array('No connections');
 	}
 
 	if ($_POST['from'] && in_array($_POST['from'], $functions)) {
 		if (($err = $_POST['from']($_POST))) {
 			$str_error = http_build_query($err);
-			header('Location: ../' . $_POST['from'] . '.php?' . $str_error);
+			header('Location: ../' . $_POST['from'] . '.php?' . 'toast=' . $str_error);
 		} else
 		{
 			$_SESSION['basketMovie'] = null;
