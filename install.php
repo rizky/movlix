@@ -88,8 +88,7 @@
 	$req = mysqli_query($db, $sql);
 	var_dump(mysqli_error($db));
 	
-	$key = get_valid_key('admin');
-	people_create('admin', 'admin@movlix.com',  'admin123456', 'Admin', 'Movlix', $key, 1);
+	people_create('admin', 'admin@movlix.com',  'admin123456', 'Admin', 'Movlix', 'Paris', 1);
 
 	$sql = "CREATE TABLE `products` (
 			`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -159,10 +158,7 @@
 						$prod = product_get_byname($data['original_title']);
 						category_add_toprod($cat['id'], $prod['id']);
 					}
-					echo "Added " . $data['original_title'] . " to " . category_get($genre)["name"] . "<br />";
 				}
-				else
-					echo "<br/><strong>Creation is failed\n</strong> :" . $data['original_title'] . "<br />"; var_dump($ret);
 			}
 		}
 		if ($i % 40 == 0)

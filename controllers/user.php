@@ -25,8 +25,7 @@
 		{
 			if (people_exist($datas['username']) === NULL)
 			{
-				$key = get_valid_key($datas['username']);
-				return (people_create($datas['username'], $datas['email'],  $datas['password'], $datas['firstname'], $datas['lastname'], $key, 0));
+				return (people_create($datas['username'], $datas['email'],  $datas['password'], $datas['firstname'], $datas['lastname'], $datas['address'], 0));
 			}
 			else
 				return (array('Username exists'));

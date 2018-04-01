@@ -58,7 +58,7 @@
 		$password = mysqli_real_escape_string($db, $password);
 		$firstname = mysqli_real_escape_string($db, $firstname);
 		$lastname = mysqli_real_escape_string($db, $lastname);
-		$address = mysqli_real_escape_string($db, $username);
+		$address = mysqli_real_escape_string($db, $address);
 		$req = "INSERT INTO peoples (username, email, password, isAdmin, firstname, lastname, address)
 			VALUES ('$username', '$email', '$password', '$isAdmin', '$firstname', '$lastname', '$address')";
 		if (mysqli_query($db, $req) === TRUE)
