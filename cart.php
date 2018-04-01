@@ -3,7 +3,9 @@
     require_once('models/products.php');
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['id']) {
         $movies = product_get_byid($_POST['id']);
-        if ($_POST['quantity'] && is_numeric($_POST['quantity']) && $_POST['quantity'] > 0 && $movies && $movies['stock'] > 0) {
+		if ($_POST['quantity'] && is_numeric($_POST['quantity']) &&
+			$_POST['quantity'] > 0 && $movies && $movies['stock'] > 0 &&
+			$_POST['quantity'] <= $movies['stock']) {
             $basket = unserialize($_SESSION['basketMovie']);
             if ($basket[$_POST['id']]) {
                 $basket[$_POST['id']] += $_POST['quantity'];

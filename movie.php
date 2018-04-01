@@ -38,7 +38,7 @@
 						<dd>-</dd>
 						<dt>Budget</dt>
 						<dd><?php echo isset($movie['budget']) ? $movie['budget'].' $' : 'Unknown' ; ?></dd>
-						<dt>Revenu</dt>
+						<dt>Revenue</dt>
 						<dd><?php echo isset($movie['revenue']) ? $movie['revenue'].' $' : 'Unknown' ; ?></dd>
 						<dt>Producer</dt>
 						<dd><?php
@@ -66,6 +66,7 @@
 					<div class="addtoCart">
 						<form action="cart.php" method="post">
 							<input type="number" name="quantity" value="1">
+							/<?php echo $product['stock']; ?>
 							<input type="hidden" name="id" value="<?php echo $product['id']; ?>">
 							<button type="submit" class="btn btn-default">Add to Cart</button>
 						</form>

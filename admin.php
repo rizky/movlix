@@ -93,7 +93,7 @@
 					</select>
 					<input type="hidden" name="from" value="removecategory">
 					<input type="hidden" name="success" value="admin">
-					<button type="submit" class="btn btn-default">Modify</button>
+					<button type="submit" class="btn btn-default">Delete</button>
 				</form>
 				<h5>Modify</h5>
 				<form action="controllers/categories.php" method="POST">
@@ -107,7 +107,7 @@
 					<input type="text" name="name" placeholder="New Category">
 					<input type="hidden" name="from" value="updatecategorie">
 					<input type="hidden" name="success" value="admin">
-					<button type="submit" class="btn btn-default">Delete</button>
+					<button type="submit" class="btn btn-default">Modify</button>
 				</form>
 			</div>
 			<div class="movies">
