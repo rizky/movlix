@@ -138,7 +138,7 @@
 	$movieids[] = 198663;
 	$movieids[] = 13230;
 	$movieids[] = 7453;
-	$movieids[] = 13230;
+	$movieids[] = 36897;
 	for ($i = 0; $i < count($movieids); $i++)
 	{
 		$ids = $movieids[$i];

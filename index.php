@@ -32,7 +32,7 @@
 				</div>
 				<div class="hideRight" onclick="moveToSelected(this)">
 					<img src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/rgxCujyIPH6K2m7sWZMPbzR78YB.jpg">
-					<a href="/movie.php?id=13230">Pokémon Chronicles</a>
+					<a href="/movie.php?id=3693">Pokémon</a>
 				</div>
 			</div>
 		</main>
