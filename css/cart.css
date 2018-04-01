@@ -1,0 +1,9 @@
+.cart .basket, .cart .title, .cart .checkout {
+	padding: 20px;
+	width: 100%;
+	text-align: center;
+}
+.cart .checkout {
+	display: flex;
+	flex-wrap: wrap;
+}

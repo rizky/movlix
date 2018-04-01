@@ -20,7 +20,8 @@
 			<ul class="ani">';
 		if ($admin !== null)
 			echo '<li><a href="admin.php">Manage</a></li>';
-		echo '<li><a href="logout.php">Logout</a></li>
+			echo '<li><a href="account.php">Account</a></li>';
+			echo '<li><a href="logout.php">Logout</a></li>
 			</ul>
 		</li>
 		';
