@@ -1,25 +1,21 @@
+#!/usr/bin/php
 <?php
 	require_once('models/products.php');
 	require_once('models/categories.php');
 	require_once('models/prod_has_cat.php');
 	require_once('models/user.php');
 	require_once('models/hash.php');
-	function database_connect2()
+	$hostname = "db";
+	$user = "root";
+	$pass = "root";
+
+	$mysqli = mysqli_connect($hostname, $user, $pass);
+	if (mysqli_connect_errno($mysqli))
 	{
-		$add = "db";
-		$user = "root";
-		$pass = "root";
-
-		$mysqli = mysqli_connect($add, $user, $pass);
-		if (mysqli_connect_errno($mysqli))
-		{
-			echo "Failed to connect to database : " . mysqli_connect_error();
-			return (NULL);
-		}
-		return $mysqli;
+		echo "Failed to connect to database : " . mysqli_connect_error();
+		$db = (NULL);
 	}
-
-	$db = database_connect2();
+	$db = $mysqli;
 	$sql = "DROP DATABASE `rush`;";
 	$req = mysqli_query($db, $sql);
 	var_dump(mysqli_error($db));
@@ -76,7 +72,7 @@
 			`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
 			`username` varchar(45) NOT NULL,
 			`email` varchar(255) NOT NULL,
-			`password` varchar(100) NOT NULL,
+			`password` varchar(300) NOT NULL,
 			`isAdmin` tinyint(1) DEFAULT '0',
 			`firstname` varchar(45) NOT NULL,
 			`lastname` varchar(45) NOT NULL,
@@ -89,7 +85,7 @@
 			UNIQUE KEY `email_UNIQUE` (`email`)
 			) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8;";
 	$req = mysqli_query($db, $sql);
-		var_dump(mysqli_error($db));
+	var_dump(mysqli_error($db));
 	
 	$key = get_valid_key('admin');
 	people_create('admin', 'admin@movlix.com',  'admin123456', 'Admin', 'Movlix', $key, 1);
@@ -126,7 +122,7 @@
 	$api_key = '?api_key=db663b344723dd2d6781aed1e2f7764d';
 	$request_base = 'http://api.themoviedb.org/3/movie/';
 	$time = microtime(TRUE);
-	echo "Filling movie database. This may take several minutes";
+	echo "\nFilling movie database. This may take several minutes<br \>\n";
 	$start = 500;
 	$max = $start + 10;
 	for ($i = $start; $i < $max; $i++)
@@ -156,15 +152,13 @@
 				$ret = product_create($data['original_title'], $data['poster_path'], $isAdult, $price, $i);
 				if ($ret === TRUE && $genre)
 				{
-					echo "Categories in progress : " . category_get($genre)["name"] . "<br />";
 					$cat = category_get($genre);
 					if ($cat)
 					{
-						echo "Get category : <strong>ok</strong><br/>";
 						$prod = product_get_byname($data['original_title']);
-						echo "Get name : <strong>ok</strong><br/>";
 						category_add_toprod($cat['id'], $prod['id']);
 					}
+					echo "Added " . $data['original_title'] . " to " . category_get($genre)["name"] . "<br />";
 				}
 				else
 					echo "<br/><strong>Creation is failed\n</strong> :" . $data['original_title'] . "<br />"; var_dump($ret);
