@@ -40,24 +40,19 @@
 		$db = database_connect();
 		$err = array();
 		if (strlen($username) > 45 || strlen($username) < 5)
-			$err[] = 'username';
+			$err[] = 'Username is too short';
 		if (filter_var($email, FILTER_VALIDATE_EMAIL) == FALSE)
-			$err[] = 'email';
+			$err[] = 'Email is not valid';
 		if (strlen($password) < 7)
-			$err[] = 'password';
+			$err[] = 'Password is too short';
 		else
-		{
-			// if ($isAdmin)
-				$password = admin_pass($password);
-		// 	else
-		// 		$password = user_pass($password);
-		}
+			$password = encrypt($password);
 		if (strlen($firstname) < 3 || strlen($firstname) > 45)
-			$err[] = 'firstname';
+			$err[] = 'First Name is too short';
 		if (strlen($lastname) < 3 || strlen($lastname) > 45)
-			$err[] = 'lastname';
+			$err[] = 'Last Name is too short';
 		if (strlen($address) < 12 || strlen($address) > 100)
-			$err[] = 'address';
+			$err[] = 'Address is too short';
 		if (!empty($err))
 			return ($err);
 		$username = mysqli_real_escape_string($db, $username);
@@ -72,8 +67,6 @@
 			return TRUE;
 		return (array('general'));
 	}
-
-
 /*
   * peoples_update takes an array supposed to contain same datas than peoples_create params
   * and a boolean, if setted as 1 (default == 0) giving possibilities to update every 'good'
@@ -91,7 +84,7 @@
 			else
 			{
 				if ($datas['isAdmin'])
-					$password = admin_pass($datas['password']);
+					$password = encrypt($datas['password']);
 				else
 					$password = user_pass($datas['password']);
 				$req['password'] = $password;
@@ -160,7 +153,7 @@
 	{
 		global $deleted_account;
 		$username = mysqli_real_escape_string($db, $username);
-		$password = admin_pass($password);
+		$password = encrypt($password);
 		$req = "UPDATE peoples set (username, email, password, isAdmin, firstname, lastname, address, cookie, valid) VALUES
 			('$deteted_account', '', '', 0, '', '', '', '', '') WHERE username = '$username' AND password = '$password'";
 	}
@@ -178,7 +171,7 @@
 	function admin_delete($username, $password)
 	{
 		$username = mysqli_real_escape_string($db, $username);
-		$password = admin_pass($password);
+		$password = encrypt($password);
 		$req = "DELETE FROM peoples WHERE username = '$username' AND password = '$password' AND isAdmin = 0";
 		$req = mysqli_query($db, $req);
 		return ($req);
@@ -188,7 +181,7 @@
 	{
 		$db = database_connect();
 
-		$password = admin_pass($password);
+		$password = encrypt($password);
 		$username = mysqli_real_escape_string($db, $username);
 		$req = mysqli_query($db, "SELECT * FROM peoples WHERE username = '$username' AND password = '$password'");
 		if (!$req)
@@ -230,22 +223,11 @@
 		return mysqli_fetch_all($req, MYSQLI_ASSOC);
 	}
 
-	function mail_exist($username)
-	{
-		$db = database_connect();
-
-		$mail = mysqli_real_escape_string($db, $mail);
-		$req = "SELECT * FROM peoples WHERE mail = '$mail'";
-		$req = mysqli_query($db, $req);
-		return mysqli_fetch_assoc($req);
-	}
-
-
 	function admin_get($username, $password)
 	{
 		$db = database_connect();
 
-		$password = admin_pass($password);
+		$password = encrypt($password);
 		$username = mysqli_real_escape_string($db, $username);
 		$req = "SELECT * FROM peoples WHERE username = '$username' AND password = '$password' AND isAdmin = 1";
 		$req = mysqli_query($db, $req);
