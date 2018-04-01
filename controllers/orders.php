@@ -1,6 +1,6 @@
 <?php
 session_start();
-	require_once('../models/people.php');
+	require_once('../models/user.php');
 	require_once('../models/orders.php');
 	require_once('../models/products.php');
 	require_once('../models/ord_has_prod.php');

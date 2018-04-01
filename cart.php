@@ -85,7 +85,7 @@
 					<div>
 						<?php
 							if ($_SESSION['username']) {
-								echo "<form method=\"post\" action=\"controller/orders.php\" />
+								echo "<form method=\"post\" action=\"controllers/orders.php\" />
 								<input type=\"hidden\" name=\"from\" value=\"basket\" />
 								<input type=\"hidden\" name=\"success\" value=\"member\" />
 								<input type=\"submit\" class='button' value='Valider la commande'/></form>";
