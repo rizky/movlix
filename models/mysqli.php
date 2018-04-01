@@ -2,7 +2,7 @@
 	function database_connect()
 	{
 		$hostname = "127.0.0.1"; //for debugging
-		// $hostname = "db"; //for production
+		$hostname = "db"; //for production
 		$user = "root";
 		$pass = "root";
 		$db = "rush";
